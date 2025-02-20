@@ -1,33 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import React, { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { db, collection, getDocs } from './db'
+import Home from './components/Home'
+import ContactDetail from './components/ContactDetails' // New component
+import AddContact from './components/AddContact'
+import EditContact from './components/EditContact'
+import './styles/global.css'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [contacts, setContacts] = useState([])
+
+  useEffect(() => {
+    const fetchContacts = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'Contacts'))
+        if (querySnapshot.empty) {
+          console.log('No contacts found in Firestore.')
+        } else {
+          const contactsList = querySnapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+          }))
+          contactsList.sort((a, b) => a.lastName.localeCompare(b.lastName))
+          console.log('Fetched contacts:', contactsList)
+          setContacts(contactsList)
+        }
+      } catch (error) {
+        console.error('Error fetching contacts: ', error)
+      }
+    }
+
+    fetchContacts()
+  }, [])
 
   return (
-    <div className="App">
+    <Router>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <Routes>
+          <Route path="/" element={<Home contacts={contacts} setContacts={setContacts} />} />
+          <Route path="/contact/:id" element={<ContactDetail contacts={contacts} />} />
+          <Route path="/add-contact" element={<AddContact setContacts={setContacts} />} />
+          <Route path="/edit/:id" element={<EditContact />} />
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    </Router>
   )
 }
 

@@ -1,0 +1,300 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Universal Theme */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #0056b3;
+  --background-color: #f8f9fa;
+  --text-color: #333;
+  --border-radius: 12px;
+  --input-padding: 12px;
+  --button-padding: 14px;
+  --section-padding: 30px;
+}
+
+/* Global body settings */
+body {
+  background: var(--background-color);
+  color: var(--text-color);
+  padding: 20px;
+  font-size: 16px;
+}
+
+/* Global Container */
+.container {
+  max-width: 700px;
+  margin: auto;
+  padding: 30px;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+}
+
+/* Buttons */
+button {
+  background: var(--primary-color);
+  color: white;
+  padding: var(--button-padding);
+  font-size: 16px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 10px 0;
+}
+
+button:hover {
+  background: var(--secondary-color);
+}
+
+/* Form Inputs */
+input {
+  width: 100%;
+  padding: var(--input-padding);
+  margin: 12px 0;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Search Bar */
+.search-bar {
+  width: 100%;
+  padding: var(--input-padding);
+  margin-bottom: 20px;
+  border-radius: var(--border-radius);
+  border: 1px solid #ccc;
+}
+
+/* Contact List */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background: #f9f9f9;
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.contact-item:hover {
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Contact Name */
+.contact-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--text-color);
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 12px;
+}
+
+/* Edit and Delete Buttons */
+.edit-btn, .delete-btn, .back-btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.edit-btn {
+  background: var(--primary-color);
+  color: white;
+}
+
+.edit-btn:hover {
+  background: var(--secondary-color);
+}
+
+.delete-btn {
+  background: #dc3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #c82333;
+}
+
+.back-btn {
+  background: #6c757d;
+  color: white;
+}
+
+.back-btn:hover {
+  background: #5a6268;
+}
+
+/* Add Contact Button */
+.add-btn {
+  display: block;
+  background: #28a745;
+  color: white;
+  padding: 14px 20px;
+  text-align: center;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.add-btn:hover {
+  background: #218838;
+}
+
+/* Contact Detail */
+.contact-detail {
+  max-width: 600px;
+  margin: auto;
+  padding: 40px;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 40px;
+}
+
+.contact-detail h1 {
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+.contact-detail p {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.contact-detail .edit-btn, .contact-detail .back-btn {
+  padding: 14px 20px;
+  margin: 15px 5px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.contact-detail .edit-btn {
+  background: var(--primary-color);
+  color: white;
+}
+
+.contact-detail .edit-btn:hover {
+  background: var(--secondary-color);
+}
+
+.contact-detail .back-btn {
+  background: #6c757d;
+  color: white;
+}
+
+.contact-detail .back-btn:hover {
+  background: #5a6268;
+}
+
+
+
+
+
+/* EditContact.css */
+
+/* Body and form styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background: #f4f7fc;
+  padding: 20px;
+}
+
+/* Edit Contact Form Styling */
+.edit-contact-form {
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: auto;
+}
+
+.edit-contact-form h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form Input Styling */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #007bff;
+}
+
+/* Submit Button Styling */
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.submit-btn:active {
+  background-color: #00408a;
+}
